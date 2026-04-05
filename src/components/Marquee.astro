@@ -1,0 +1,98 @@
+---
+const skills = [
+  "TypeScript",
+  "React",
+  "Node.js",
+  "PHP",
+  "NestJS",
+  "Next.js",
+  "PostgreSQL",
+  "MongoDB",
+  "MySQL",
+  "Docker",
+  "AWS",
+  "Astro",
+  "React Native",
+  "Git",
+  "Tailwind CSS",
+];
+
+const separator = "✦";
+---
+
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-inner">
+    <div class="marquee-track">
+      {
+        skills.map((skill) => (
+          <>
+            <span class="skill-item">{skill}</span>
+            <span class="skill-sep">{separator}</span>
+          </>
+        ))
+      }
+      {/* Duplicate for seamless loop */}
+      {
+        skills.map((skill) => (
+          <>
+            <span class="skill-item">{skill}</span>
+            <span class="skill-sep">{separator}</span>
+          </>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .marquee-section {
+    background-color: var(--color-surface);
+    border-top: 1px solid rgba(107, 100, 96, 0.15);
+    border-bottom: 1px solid rgba(107, 100, 96, 0.15);
+    padding: 14px 0;
+    overflow: hidden;
+  }
+
+  .marquee-inner {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+    animation: marquee 28s linear infinite;
+    will-change: transform;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .skill-item {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    padding: 0 1.5rem;
+    font-weight: 400;
+  }
+
+  .skill-sep {
+    color: var(--color-accent);
+    font-size: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>

@@ -1,0 +1,289 @@
+---
+
+---
+
+<section id="skills" class="section-py">
+  <div class="wrapper">
+    <p class="section-label reveal">
+      <span class="lang-es">Stack</span>
+      <span class="lang-en">Stack</span>
+    </p>
+
+    <div class="skills-grid">
+      <!-- ES -->
+      <div class="skills-categories lang-es reveal">
+        <div class="skill-row">
+          <span class="skill-cat">Lenguajes</span>
+          <span class="skill-divider">—</span>
+          <span class="skill-items">
+            <span class="skill-tag primary">TypeScript</span>
+            <span class="skill-tag primary">JavaScript</span>
+            <span class="skill-tag primary">PHP</span>
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Frameworks</span>
+          <span class="skill-divider">—</span>
+          <span class="skill-items">
+            <span class="skill-tag primary">React</span>
+            <span class="skill-tag primary">Node.js</span>
+            <span class="skill-tag primary">NestJS</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">Astro</span>
+            <span class="skill-tag">React Native</span>
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Bases de datos</span>
+          <span class="skill-divider">—</span>
+          <span class="skill-items">
+            <span class="skill-tag primary">PostgreSQL</span>
+            <span class="skill-tag primary">MySQL</span>
+            <span class="skill-tag primary">MongoDB</span>
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Herramientas</span>
+          <span class="skill-divider">—</span>
+          <span class="skill-items">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Idiomas</span>
+          <span class="skill-divider">—</span>
+          <span class="skill-items">
+            <span class="skill-tag">Español (nativo)</span>
+            <span class="skill-tag">Inglés (B1)</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- EN -->
+      <div class="skills-categories lang-en reveal">
+        <div class="skill-row">
+          <span class="skill-cat">Languages</span>
+          <span class="skill-divider">—</span>
+          <span class="skill-items">
+            <span class="skill-tag primary">TypeScript</span>
+            <span class="skill-tag primary">JavaScript</span>
+            <span class="skill-tag primary">PHP</span>
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Frameworks</span>
+          <span class="skill-divider">—</span>
+          <span class="skill-items">
+            <span class="skill-tag primary">React</span>
+            <span class="skill-tag primary">Node.js</span>
+            <span class="skill-tag primary">NestJS</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">Astro</span>
+            <span class="skill-tag">React Native</span>
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Databases</span>
+          <span class="skill-divider">—</span>
+          <span class="skill-items">
+            <span class="skill-tag primary">PostgreSQL</span>
+            <span class="skill-tag primary">MySQL</span>
+            <span class="skill-tag primary">MongoDB</span>
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Tools</span>
+          <span class="skill-divider">—</span>
+          <span class="skill-items">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Languages</span>
+          <span class="skill-divider">—</span>
+          <span class="skill-items">
+            <span class="skill-tag">Spanish (native)</span>
+            <span class="skill-tag">English (B1)</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Certifications (same in both) -->
+      <div class="certifications reveal">
+        <p class="cert-label">
+          <span class="lang-es">Certificaciones</span>
+          <span class="lang-en">Certifications</span>
+        </p>
+        <ul class="cert-list">
+          <li>
+            React &amp; TypeScript – The Complete Guide <span
+              class="cert-source">Udemy</span>
+          </li>
+          <li>
+            Node.js: From Zero to Expert <span class="cert-source">Udemy</span>
+          </li>
+          <li>Git and GitHub <span class="cert-source">Alura Latam</span></li>
+          <li>
+            Programming Logic <span class="cert-source">Alura Latam</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: "";
+    flex: 1;
+    max-width: 40px;
+    height: 1px;
+    background-color: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  @media (min-width: 900px) {
+    .skills-grid {
+      grid-template-columns: 1fr auto;
+      gap: 5rem;
+    }
+
+    .certifications {
+      grid-column: 2;
+      grid-row: 1;
+    }
+  }
+
+  .skills-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .skill-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .skill-cat {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    font-weight: 500;
+    min-width: 110px;
+    flex-shrink: 0;
+  }
+
+  .skill-divider {
+    color: var(--color-accent);
+    opacity: 0.4;
+    flex-shrink: 0;
+  }
+
+  .skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    font-weight: 300;
+    padding: 3px 10px;
+    border: 1px solid rgba(107, 100, 96, 0.2);
+    border-radius: 2px;
+    transition:
+      color 0.2s,
+      border-color 0.2s;
+  }
+
+  .skill-tag:hover {
+    color: var(--color-fg);
+    border-color: rgba(107, 100, 96, 0.5);
+  }
+
+  .skill-tag.primary {
+    color: var(--color-fg);
+    border-color: rgba(26, 26, 26, 0.25);
+    font-weight: 500;
+  }
+
+  .skill-tag.primary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* Certifications */
+  .certifications {
+    min-width: 220px;
+  }
+
+  .cert-label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .cert-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .cert-list li {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-fg);
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+  .cert-source {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--color-accent);
+    letter-spacing: 0.04em;
+    margin-top: 1px;
+    font-weight: 400;
+  }
+</style>

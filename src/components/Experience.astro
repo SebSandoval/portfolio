@@ -1,0 +1,343 @@
+---
+
+---
+
+<section
+  id="experience"
+  class="section-py"
+  style="background-color: var(--color-surface);"
+>
+  <div class="wrapper">
+    <!-- Label -->
+    <p class="section-label reveal">
+      <span class="lang-es">Experiencia</span>
+      <span class="lang-en">Experience</span>
+    </p>
+
+    <!-- ES Jobs -->
+    <div class="jobs lang-es">
+      <!-- Job 1 -->
+      <article class="job-entry reveal">
+        <div class="job-meta">
+          <span class="job-year">2023</span>
+          <div class="job-connector"></div>
+        </div>
+        <div class="job-content">
+          <div class="job-header">
+            <h3 class="job-company">Omega Soluciones Web</h3>
+            <span class="job-period">Feb 2023 – Presente</span>
+          </div>
+          <p class="job-role">Full Stack Developer</p>
+          <ul class="job-bullets">
+            <li>
+              Desarrollo de proyectos web con NestJS, Next.js, PostgreSQL y
+              MongoDB
+            </li>
+            <li>Arquitecturas de sistema escalables y eficientes</li>
+            <li>Despliegue con Docker y gestión de contenedores</li>
+            <li>Sistemas web custom con PHP, JavaScript y MySQL</li>
+            <li>Plataformas e-commerce y sitios corporativos</li>
+            <li>Sistemas de nómina, reportes, tickets y gestión de cuentas</li>
+            <li>Optimización de procesos internos y mejora de UX</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Job 2 -->
+      <article class="job-entry reveal">
+        <div class="job-meta">
+          <span class="job-year">2022</span>
+          <div class="job-connector"></div>
+        </div>
+        <div class="job-content">
+          <div class="job-header">
+            <h3 class="job-company">SENA Tecnoparque</h3>
+            <span class="job-period">Jun 2022 – Dic 2022</span>
+          </div>
+          <p class="job-role">Web Developer</p>
+          <ul class="job-bullets">
+            <li>
+              Desarrollo de aplicaciones web para startups y emprendedores
+            </li>
+            <li>Sistemas de inventario y gestión por lotes</li>
+            <li>Integración de plataformas e-commerce</li>
+            <li>Capacitación a clientes en herramientas digitales</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <!-- EN Jobs -->
+    <div class="jobs lang-en">
+      <!-- Job 1 -->
+      <article class="job-entry reveal">
+        <div class="job-meta">
+          <span class="job-year">2023</span>
+          <div class="job-connector"></div>
+        </div>
+        <div class="job-content">
+          <div class="job-header">
+            <h3 class="job-company">Omega Soluciones Web</h3>
+            <span class="job-period">Feb 2023 – Present</span>
+          </div>
+          <p class="job-role">Full Stack Developer</p>
+          <ul class="job-bullets">
+            <li>
+              Built web projects using NestJS, Next.js, PostgreSQL, and MongoDB
+            </li>
+            <li>Implemented scalable and efficient system architectures</li>
+            <li>Used Docker for deployment and container management</li>
+            <li>
+              Developed and maintained custom web systems using PHP, JavaScript,
+              and MySQL
+            </li>
+            <li>Built e-commerce platforms and corporate websites</li>
+            <li>
+              Developed payroll, reporting, ticketing, and account management
+              systems
+            </li>
+            <li>Optimized internal processes and improved user experience</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Job 2 -->
+      <article class="job-entry reveal">
+        <div class="job-meta">
+          <span class="job-year">2022</span>
+          <div class="job-connector"></div>
+        </div>
+        <div class="job-content">
+          <div class="job-header">
+            <h3 class="job-company">SENA Tecnoparque</h3>
+            <span class="job-period">Jun 2022 – Dec 2022</span>
+          </div>
+          <p class="job-role">Web Developer</p>
+          <ul class="job-bullets">
+            <li>Developed web applications for startups and entrepreneurs</li>
+            <li>Implemented inventory and batch management systems</li>
+            <li>Integrated e-commerce platforms</li>
+            <li>Trained clients in the use of digital tools</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <!-- Education -->
+    <div class="education reveal">
+      <p class="edu-label">
+        <span class="lang-es">Formación</span>
+        <span class="lang-en">Education</span>
+      </p>
+      <div class="edu-items">
+        <div class="edu-item">
+          <span class="edu-degree">
+            <span class="lang-es">Ingeniería en Sistemas Computacionales</span>
+            <span class="lang-en">Bachelor in Computer Engineering</span>
+          </span>
+          <span class="edu-school">Universidad Internacional de La Rioja</span>
+        </div>
+        <div class="edu-item">
+          <span class="edu-degree">
+            <span class="lang-es"
+              >Tecnólogo en Análisis y Desarrollo de Software</span
+            >
+            <span class="lang-en"
+              >Software Analysis and Development Technologist</span
+            >
+          </span>
+          <span class="edu-school">SENA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: "";
+    flex: 1;
+    max-width: 40px;
+    height: 1px;
+    background-color: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  .jobs {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .job-entry {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .job-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 48px;
+    flex-shrink: 0;
+  }
+
+  .job-year {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 0.06em;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+  }
+
+  .job-connector {
+    flex: 1;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--color-accent), transparent);
+    margin-top: 8px;
+    opacity: 0.3;
+    min-height: 40px;
+  }
+
+  .job-content {
+    padding-top: 2px;
+    border-left: 2px solid transparent;
+    padding-left: 1.5rem;
+    transition: border-color 0.3s;
+  }
+
+  .job-entry:hover .job-content {
+    border-left-color: var(--color-accent);
+  }
+
+  .job-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .job-company {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-fg);
+    letter-spacing: -0.01em;
+  }
+
+  .job-period {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .job-role {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--color-accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .job-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .job-bullets li {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+    padding-left: 1rem;
+    position: relative;
+    font-weight: 300;
+  }
+
+  .job-bullets li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    opacity: 0.5;
+    font-size: 0.7rem;
+    top: 0.15em;
+  }
+
+  /* Education */
+  .education {
+    padding-top: 3rem;
+    border-top: 1px solid rgba(107, 100, 96, 0.2);
+  }
+
+  .edu-label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  .edu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .edu-items {
+      flex-direction: row;
+      gap: 4rem;
+    }
+  }
+
+  .edu-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .edu-degree {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: var(--color-fg);
+    font-weight: 500;
+  }
+
+  .edu-school {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    font-weight: 300;
+  }
+</style>

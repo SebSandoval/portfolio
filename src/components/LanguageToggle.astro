@@ -1,0 +1,60 @@
+---
+// Language toggle — no React needed, pure script
+---
+
+<button
+  id="lang-toggle"
+  aria-label="Toggle language / Cambiar idioma"
+  class="lang-toggle-btn"
+>
+  <span class="lang-es">EN</span>
+  <span class="lang-en">ES</span>
+</button>
+
+<script>
+  const btn = document.getElementById("lang-toggle");
+  const html = document.documentElement;
+
+  // Restore preference
+  const stored = localStorage.getItem("lang") as "es" | "en" | null;
+  if (stored && stored !== "es") {
+    html.classList.remove("lang-es");
+    html.classList.add("lang-en");
+  }
+
+  btn?.addEventListener("click", () => {
+    const isEs = html.classList.contains("lang-es");
+    if (isEs) {
+      html.classList.replace("lang-es", "lang-en");
+      localStorage.setItem("lang", "en");
+    } else {
+      html.classList.replace("lang-en", "lang-es");
+      localStorage.setItem("lang", "es");
+    }
+  });
+</script>
+
+<style>
+  .lang-toggle-btn {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    color: var(--color-muted);
+    background: none;
+    border: 1px solid rgba(107, 100, 96, 0.3);
+    border-radius: 2px;
+    padding: 4px 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition:
+      color 0.2s,
+      border-color 0.2s;
+    line-height: 1;
+  }
+
+  .lang-toggle-btn:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+</style>

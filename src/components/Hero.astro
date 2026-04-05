@@ -1,0 +1,281 @@
+---
+
+---
+
+<section id="hero" class="relative min-h-screen flex flex-col overflow-hidden">
+  <!-- Diagonal accent line -->
+  <div class="accent-line" aria-hidden="true"></div>
+
+  <!-- TOP: Available badge (near nav) -->
+  <div class="wrapper hero-top">
+    <div class="available-badge" id="hero-badge">
+      <span class="dot"></span>
+      <span class="lang-es">Disponible para proyectos</span>
+      <span class="lang-en">Available for projects</span>
+    </div>
+  </div>
+
+  <!-- BOTTOM: Main content -->
+  <div class="wrapper hero-bottom">
+    <div class="hero-grid">
+      <!-- Name block (left) -->
+      <div class="name-block">
+        <h1 class="hero-name" id="hero-name">
+          Juan<br />Sebastián<br />Sandoval
+        </h1>
+        <p class="hero-role" id="hero-role">Full Stack Developer</p>
+      </div>
+
+      <!-- Tagline + CTA (right) -->
+      <div class="tagline-block">
+        <p class="hero-tagline lang-es" id="hero-tagline-es">
+          Construyo aplicaciones web prácticas, mantenibles y fáciles de usar.
+        </p>
+        <p class="hero-tagline lang-en" id="hero-tagline-en">
+          I build web applications that are practical, maintainable, and user-friendly.
+        </p>
+        <a href="#projects" class="hero-cta" id="hero-cta">
+          <span class="lang-es">Ver mi trabajo</span>
+          <span class="lang-en">See my work</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+          >
+            <path d="M3 8h10M9 4l4 4-4 4"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" aria-hidden="true">
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+
+  // Hero text reveal animation
+  const tl = gsap.timeline({ delay: 0.15 });
+
+  tl.fromTo(
+    "#hero-badge",
+    { opacity: 0, y: -12 },
+    { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" },
+  )
+    .fromTo(
+      "#hero-name",
+      { y: 70, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.1, ease: "expo.out" },
+      0.1,
+    )
+    .fromTo(
+      "#hero-role",
+      { y: 24, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: "expo.out" },
+      "-=0.65",
+    )
+    .fromTo(
+      "#hero-tagline-es, #hero-tagline-en",
+      { y: 32, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.85, ease: "expo.out" },
+      "-=0.55",
+    )
+    .fromTo(
+      "#hero-cta",
+      { y: 18, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
+      "-=0.5",
+    )
+    .fromTo(
+      ".accent-line",
+      { scaleX: 0 },
+      { scaleX: 1, duration: 1.5, ease: "expo.out" },
+      0,
+    );
+</script>
+
+<style>
+  #hero {
+    background-color: var(--color-bg);
+    /* justify-content: space-between; */
+  }
+
+  .accent-line {
+    position: absolute;
+    top: 45%;
+    left: -5%;
+    width: 55%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-accent) 30%,
+      var(--color-accent) 70%,
+      transparent
+    );
+    transform-origin: left center;
+    opacity: 0.4;
+    rotate: -8deg;
+    pointer-events: none;
+  }
+
+  /* Badge near the top, below nav */
+  .hero-top {
+    padding-top: calc(80px + 1.75rem); /* nav height + gap */
+  }
+
+  /* Name at the bottom */
+  .hero-bottom {
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  .available-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    opacity: 0; /* GSAP will reveal */
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    animation: pulse 2.5s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(0.8);
+    }
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: end;
+  }
+
+  @media (min-width: 768px) {
+    .hero-grid {
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem;
+    }
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--color-fg);
+    opacity: 0; /* GSAP will reveal */
+    margin-bottom: 1rem;
+  }
+
+  .hero-role {
+    font-family: var(--font-body);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    color: var(--color-accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0; /* GSAP will reveal */
+  }
+
+  .tagline-block {
+    padding-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: flex-end;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--color-muted);
+    font-weight: 300;
+    opacity: 0; /* GSAP will reveal */
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 2px;
+    opacity: 0; /* GSAP will reveal */
+    transition:
+      color 0.2s,
+      gap 0.2s;
+    width: fit-content;
+  }
+
+  .hero-cta:hover {
+    color: var(--color-accent);
+    gap: 12px;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    right: clamp(1.25rem, 5vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--color-accent), transparent);
+    animation: scrollDrop 1.8s ease-in-out infinite;
+  }
+
+  @keyframes scrollDrop {
+    0% {
+      transform: scaleY(0);
+      transform-origin: top;
+      opacity: 1;
+    }
+    50% {
+      transform: scaleY(1);
+      transform-origin: top;
+      opacity: 1;
+    }
+    100% {
+      transform: scaleY(1);
+      transform-origin: bottom;
+      opacity: 0;
+    }
+  }
+</style>

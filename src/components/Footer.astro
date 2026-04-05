@@ -1,0 +1,59 @@
+---
+
+---
+
+<footer>
+  <div class="wrapper py-10 footer-inner">
+    <span class="footer-name">© 2026 Juan Sebastián Sandoval</span>
+    <span class="footer-built">
+      <span class="lang-es">Construido con</span>
+      <span class="lang-en">Built with</span>
+      <a
+        href="https://astro.build"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer-link">Astro</a
+      >
+    </span>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid rgba(107, 100, 96, 0.15);
+    background-color: var(--color-surface);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-name,
+  .footer-built {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    letter-spacing: 0.03em;
+    font-weight: 400;
+  }
+
+  .footer-built {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .footer-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+</style>

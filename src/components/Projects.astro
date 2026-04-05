@@ -1,0 +1,318 @@
+---
+
+---
+
+<section
+  id="projects"
+  class="section-py"
+  style="background-color: var(--color-surface);"
+>
+  <div class="wrapper">
+    <p class="section-label reveal">
+      <span class="lang-es">Proyectos</span>
+      <span class="lang-en">Projects</span>
+    </p>
+
+    <!-- ES Projects -->
+    <div class="projects-grid lang-es">
+      <article class="project-card reveal">
+        <div class="project-inner">
+          <div class="project-type">Omega Soluciones Web</div>
+          <h3 class="project-title">Plataforma E-Commerce</h3>
+          <p class="project-desc">
+            Plataforma de comercio electrónico completa con gestión de
+            productos, carrito, pagos integrados y panel de administración.
+          </p>
+          <div class="project-stack">
+            <span>Next.js</span><span>NestJS</span><span>PostgreSQL</span><span
+              >Docker</span
+            >
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-inner">
+          <div class="project-type">Omega Soluciones Web</div>
+          <h3 class="project-title">Sistema de Nómina & Reportes</h3>
+          <p class="project-desc">
+            Sistema interno para cálculo de nómina, generación de reportes
+            automatizados y gestión de cuentas corporativas.
+          </p>
+          <div class="project-stack">
+            <span>PHP</span><span>MySQL</span><span>JavaScript</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-inner">
+          <div class="project-type">SENA Tecnoparque</div>
+          <h3 class="project-title">Sistema de Inventario</h3>
+          <p class="project-desc">
+            Aplicación de gestión de inventario con control por lotes, alertas
+            de stock y trazabilidad de productos.
+          </p>
+          <div class="project-stack">
+            <span>React</span><span>Node.js</span><span>MongoDB</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card project-card--github reveal">
+        <a
+          href="https://github.com/SebSandoval"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-inner project-link"
+        >
+          <div class="project-type">Personal</div>
+          <h3 class="project-title">Proyectos en GitHub</h3>
+          <p class="project-desc">
+            Explora mis proyectos personales, experimentación con nuevas
+            tecnologías y contribuciones open source.
+          </p>
+          <div class="project-cta-arrow">
+            Ver en GitHub
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M3 13L13 3M13 3H7M13 3v6"></path>
+            </svg>
+          </div>
+        </a>
+      </article>
+    </div>
+
+    <!-- EN Projects -->
+    <div class="projects-grid lang-en">
+      <article class="project-card reveal">
+        <div class="project-inner">
+          <div class="project-type">Omega Soluciones Web</div>
+          <h3 class="project-title">E-Commerce Platform</h3>
+          <p class="project-desc">
+            Full-featured e-commerce platform with product management, cart,
+            integrated payments, and admin dashboard.
+          </p>
+          <div class="project-stack">
+            <span>Next.js</span><span>NestJS</span><span>PostgreSQL</span><span
+              >Docker</span
+            >
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-inner">
+          <div class="project-type">Omega Soluciones Web</div>
+          <h3 class="project-title">Payroll & Reporting System</h3>
+          <p class="project-desc">
+            Internal system for payroll calculation, automated report
+            generation, and corporate account management.
+          </p>
+          <div class="project-stack">
+            <span>PHP</span><span>MySQL</span><span>JavaScript</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-inner">
+          <div class="project-type">SENA Tecnoparque</div>
+          <h3 class="project-title">Inventory Management System</h3>
+          <p class="project-desc">
+            Inventory management application with batch control, stock alerts,
+            and product traceability for entrepreneurs.
+          </p>
+          <div class="project-stack">
+            <span>React</span><span>Node.js</span><span>MongoDB</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card project-card--github reveal">
+        <a
+          href="https://github.com/SebSandoval"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-inner project-link"
+        >
+          <div class="project-type">Personal</div>
+          <h3 class="project-title">Projects on GitHub</h3>
+          <p class="project-desc">
+            Explore my personal projects, experiments with new technologies, and
+            open source contributions.
+          </p>
+          <div class="project-cta-arrow">
+            See on GitHub
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M3 13L13 3M13 3H7M13 3v6"></path>
+            </svg>
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: "";
+    flex: 1;
+    max-width: 40px;
+    height: 1px;
+    background-color: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .project-card {
+    background-color: var(--color-bg);
+    border: 1px solid rgba(107, 100, 96, 0.15);
+    border-radius: 3px;
+    overflow: hidden;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    position: relative;
+  }
+
+  .project-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-accent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(26, 26, 26, 0.1);
+  }
+
+  .project-card:hover::after {
+    opacity: 0.04;
+  }
+
+  .project-card--github {
+    border-color: rgba(194, 85, 58, 0.25);
+  }
+
+  .project-inner {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+  }
+
+  .project-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .project-type {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 400;
+  }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-fg);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .project-desc {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    line-height: 1.65;
+    font-weight: 300;
+    flex: 1;
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .project-stack span {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--color-muted);
+    background-color: var(--color-surface);
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  .project-cta-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-top: auto;
+    transition: gap 0.2s;
+  }
+
+  .project-card--github:hover .project-cta-arrow {
+    gap: 10px;
+  }
+</style>

@@ -1,0 +1,173 @@
+---
+import LanguageToggle from "./LanguageToggle.astro";
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="wrapper py-6 flex items-center justify-between">
+    <!-- Logo -->
+    <a
+      href="#"
+      class="font-display text-2xl font-bold tracking-tight"
+      style="color: var(--color-fg); text-decoration: none;"
+    >
+      JS
+    </a>
+
+    <!-- Links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#about" class="nav-link lang-es">Sobre mí</a>
+      <a href="#about" class="nav-link lang-en">About</a>
+
+      <a href="#experience" class="nav-link lang-es">Experiencia</a>
+      <a href="#experience" class="nav-link lang-en">Experience</a>
+
+      <a href="#projects" class="nav-link lang-es">Proyectos</a>
+      <a href="#projects" class="nav-link lang-en">Projects</a>
+
+      <a href="#ai" class="nav-link lang-es">IA</a>
+      <a href="#ai" class="nav-link lang-en">AI</a>
+
+      <a href="#contact" class="nav-link lang-es">Contacto</a>
+      <a href="#contact" class="nav-link lang-en">Contact</a>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <!-- CV Download -->
+      <a
+        href="/Juan_Sandoval_CV_DesarrolladorFullStackES.pdf"
+        download
+        class="cv-btn lang-es hidden md:inline-flex"
+      >Descargar CV</a>
+      <a
+        href="/Juan_Sandoval_CV_DeveloperFullStackEN.pdf"
+        download
+        class="cv-btn lang-en hidden md:inline-flex"
+      >Download CV</a>
+
+      <LanguageToggle />
+
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden"
+        aria-label="Menú"
+        style="color: var(--color-fg); background: none; border: none; cursor: pointer;"
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <line x1="3" y1="7" x2="19" y2="7"></line>
+          <line x1="3" y1="11" x2="19" y2="11"></line>
+          <line x1="3" y1="15" x2="19" y2="15"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile dropdown -->
+  <div id="mobile-menu" class="mobile-menu md:hidden hidden">
+    <div class="wrapper pb-6 flex flex-col gap-4">
+      <a href="#about" class="nav-link lang-es mobile-link">Sobre mí</a>
+      <a href="#about" class="nav-link lang-en mobile-link">About</a>
+      <a href="#experience" class="nav-link lang-es mobile-link">Experiencia</a>
+      <a href="#experience" class="nav-link lang-en mobile-link">Experience</a>
+      <a href="#projects" class="nav-link lang-es mobile-link">Proyectos</a>
+      <a href="#projects" class="nav-link lang-en mobile-link">Projects</a>
+      <a href="#ai" class="nav-link lang-es mobile-link">IA</a>
+      <a href="#ai" class="nav-link lang-en mobile-link">AI</a>
+      <a href="#contact" class="nav-link lang-es mobile-link">Contacto</a>
+      <a href="#contact" class="nav-link lang-en mobile-link">Contact</a>
+      <a
+        href="/Juan_Sandoval_CV_DesarrolladorFullStackES.pdf"
+        download
+        class="cv-btn lang-es mobile-link"
+      >Descargar CV</a>
+      <a
+        href="/Juan_Sandoval_CV_DeveloperFullStackEN.pdf"
+        download
+        class="cv-btn lang-en mobile-link"
+      >Download CV</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+
+  // Close on link click
+  document.querySelectorAll(".mobile-link").forEach((link) => {
+    link.addEventListener("click", () => menu?.classList.add("hidden"));
+  });
+</script>
+
+<style>
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-accent);
+    transition: width 0.25s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--color-fg);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .mobile-menu {
+    background-color: rgba(245, 240, 232, 0.97);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(107, 100, 96, 0.12);
+  }
+
+  .mobile-link {
+    font-size: 1rem;
+    display: block;
+  }
+
+  .cv-btn {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-bg, #f5f0e8);
+    background-color: var(--color-accent);
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    transition: opacity 0.2s, background-color 0.2s;
+    white-space: nowrap;
+    align-items: center;
+  }
+
+  .cv-btn:hover {
+    opacity: 0.85;
+  }
+</style>

@@ -1,0 +1,209 @@
+---
+
+---
+
+<section id="about" class="section-py">
+  <div class="wrapper">
+    <p class="section-label reveal">
+      <span class="lang-es">Sobre mí</span>
+      <span class="lang-en">About</span>
+    </p>
+
+    <div class="about-grid">
+      <!-- ↓ FOTO — comentar este bloque para ocultar sin romper el layout -->
+      <div class="photo-block reveal">
+        <div class="photo-frame">
+          <img
+            src="/photo.jpg"
+            alt="Juan Sebastián Sandoval"
+            class="photo-img"
+            loading="lazy"
+            width="320"
+            height="360"
+          />
+          <div class="photo-accent" aria-hidden="true"></div>
+        </div>
+      </div>
+      <!-- ↑ FIN bloque foto -->
+
+      <!-- Text side -->
+      <div class="text-side">
+        <!-- Big number (decorative) -->
+        <div class="years-block reveal">
+          <span class="years-number">3+</span>
+          <span class="years-label lang-es">años de<br />experiencia</span>
+          <span class="years-label lang-en">years of<br />experience</span>
+        </div>
+
+        <p class="about-body reveal lang-es">
+          Desarrollador Full Stack con más de 3 años construyendo aplicaciones
+          web escalables. Trabajo con React, Node.js, PHP, TypeScript,
+          PostgreSQL y MongoDB. Me interesa igual el rendimiento del sistema que
+          la experiencia del usuario — el código limpio y las interfaces
+          cuidadas no son opuestos.
+        </p>
+        <p class="about-body reveal lang-en">
+          Full Stack Developer with over 3 years building scalable web
+          applications. I work with React, Node.js, PHP, TypeScript, PostgreSQL,
+          and MongoDB. I care equally about system performance and user
+          experience — clean code and polished interfaces are not opposites.
+        </p>
+
+        <div class="location reveal">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+            aria-hidden="true"
+          >
+            <circle cx="7" cy="6" r="2.5"></circle>
+            <path
+              d="M7 1C4.5 1 2.5 3 2.5 5.5c0 3.5 4.5 7.5 4.5 7.5s4.5-4 4.5-7.5C11.5 3 9.5 1 7 1z"
+            ></path>
+          </svg>
+          San Gil, Santander, Colombia
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: "";
+    flex: 1;
+    max-width: 40px;
+    height: 1px;
+    background-color: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Grid collapses gracefully if photo block is commented out */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    .about-grid {
+      /* auto handles the photo column — if photo removed, text takes full width */
+      grid-template-columns: auto 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+  }
+
+  /* Photo */
+  .photo-block {
+    display: flex;
+    justify-content: center;
+  }
+
+  .photo-frame {
+    position: relative;
+    width: 220px;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .photo-frame {
+      width: 240px;
+    }
+  }
+
+  .photo-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    filter: grayscale(15%);
+    transition: filter 0.4s;
+  }
+
+  .photo-img:hover {
+    filter: grayscale(0%);
+  }
+
+  /* Decorative accent border offset */
+  .photo-accent {
+    position: absolute;
+    inset: 0;
+    border: 1.5px solid var(--color-accent);
+    transform: translate(10px, 10px);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Text side */
+  .text-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .years-block {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .years-number {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 8vw, 6.5rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--color-fg);
+    letter-spacing: -0.04em;
+  }
+
+  .years-label {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    line-height: 1.5;
+    font-weight: 400;
+    padding-bottom: 0.5rem;
+  }
+
+  .about-body {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    line-height: 1.78;
+    color: var(--color-fg);
+    font-weight: 300;
+    max-width: 52ch;
+  }
+
+  .location {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    letter-spacing: 0.02em;
+  }
+</style>

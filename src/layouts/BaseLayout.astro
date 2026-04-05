@@ -1,0 +1,141 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Juan Sebastián Sandoval — Full Stack Developer",
+  description = "Full Stack Developer con más de 3 años de experiencia. React, Node.js, PHP, TypeScript, PostgreSQL, MongoDB.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="lang-es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Juan Sebastián Sandoval" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <!-- Custom cursor -->
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+    <slot />
+
+    <script>
+      import gsap from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // ── Custom cursor ────────────────────────────────────────────────────
+      const dot = document.getElementById("cursor-dot");
+      if (dot && window.matchMedia("(hover: hover)").matches) {
+        dot.style.display = "block";
+        let mouseX = 0,
+          mouseY = 0;
+        let dotX = 0,
+          dotY = 0;
+
+        window.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        });
+
+        gsap.ticker.add(() => {
+          dotX += (mouseX - dotX) * 0.15;
+          dotY += (mouseY - dotY) * 0.15;
+          gsap.set(dot, { x: dotX, y: dotY });
+        });
+
+        document.querySelectorAll("a, button").forEach((el) => {
+          el.addEventListener("mouseenter", () =>
+            dot.classList.add("hovering"),
+          );
+          el.addEventListener("mouseleave", () =>
+            dot.classList.remove("hovering"),
+          );
+        });
+      }
+
+      // ── Nav blur on scroll ───────────────────────────────────────────────
+      const nav = document.querySelector("nav");
+      if (nav) {
+        ScrollTrigger.create({
+          start: 60,
+          onEnter: () => nav.classList.add("scrolled"),
+          onLeaveBack: () => nav.classList.remove("scrolled"),
+        });
+      }
+
+      // ── Scroll reveals ───────────────────────────────────────────────────
+      // Set initial state via JS (more reliable than CSS-only approach)
+      const revealEls = gsap.utils.toArray<HTMLElement>(".reveal");
+
+      // Apply initial hidden state immediately
+      gsap.set(revealEls, { opacity: 0, y: 30, immediateRender: true });
+
+      // Create a ScrollTrigger for each element
+      revealEls.forEach((el) => {
+        ScrollTrigger.create({
+          trigger: el,
+          start: "top 91%", // fire when element top reaches 91% of viewport height
+          once: true, // only trigger once (no reverse)
+          onEnter: () => {
+            gsap.to(el, {
+              opacity: 1,
+              y: 0,
+              duration: 0.85,
+              ease: "power3.out",
+              clearProps: "transform", // clean up after animation
+            });
+          },
+        });
+      });
+
+      // Stagger siblings within same parent for a nicer cascade effect
+      ScrollTrigger.batch(".reveal-group > .reveal", {
+        onEnter: (batch) =>
+          gsap.to(batch, {
+            opacity: 1,
+            y: 0,
+            stagger: 0.12,
+            duration: 0.85,
+            ease: "power3.out",
+          }),
+        start: "top 91%",
+        once: true,
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* Language visibility */
+  html.lang-es .lang-en {
+    display: none;
+  }
+  html.lang-en .lang-es {
+    display: none;
+  }
+
+  /* Hide cursor dot by default — shown via JS on hover-capable devices */
+  .cursor-dot {
+    display: none;
+  }
+
+  /* Remove CSS-based initial state — GSAP handles this now */
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+</style>
