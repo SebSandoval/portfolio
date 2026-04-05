@@ -62,6 +62,8 @@
 <script>
   import gsap from "gsap";
 
+  // Respect prefers-reduced-motion
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   // Hero text reveal animation
   const tl = gsap.timeline({ delay: 0.15 });
 
@@ -100,6 +102,7 @@
       { scaleX: 1, duration: 1.5, ease: "expo.out" },
       0,
     );
+  }
 </script>
 
 <style>
@@ -218,7 +221,7 @@
     font-size: clamp(1rem, 1.8vw, 1.25rem);
     line-height: 1.6;
     color: var(--color-muted);
-    font-weight: 300;
+    font-weight: 400;
     opacity: 0; /* GSAP will reveal */
   }
 

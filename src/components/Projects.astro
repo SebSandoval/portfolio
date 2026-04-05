@@ -607,13 +607,16 @@
     border: 1px solid rgba(107, 100, 96, 0.15);
     border-radius: 3px;
     overflow: hidden;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
     position: relative;
   }
 
-  .project-card::after {
+  .project-card--github {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .project-card--github::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -623,12 +626,12 @@
     pointer-events: none;
   }
 
-  .project-card:hover {
+  .project-card--github:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 40px rgba(26, 26, 26, 0.1);
   }
 
-  .project-card:hover::after {
+  .project-card--github:hover::after {
     opacity: 0.04;
   }
 
@@ -672,7 +675,7 @@
     font-size: 0.85rem;
     color: var(--color-muted);
     line-height: 1.65;
-    font-weight: 300;
+    font-weight: 400;
     flex: 1;
   }
 

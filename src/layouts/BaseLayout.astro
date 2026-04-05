@@ -8,7 +8,7 @@ interface Props {
 
 const {
   title = "Juan Sebastián Sandoval — Full Stack Developer",
-  description = "Full Stack Developer con más de 3 años de experiencia. React, Node.js, PHP, TypeScript, PostgreSQL, MongoDB.",
+  description = "Full Stack Developer with 3+ years of experience. React, Node.js, PHP, TypeScript, PostgreSQL, MongoDB. / Full Stack Developer con más de 3 años de experiencia.",
 } = Astro.props;
 ---
 
@@ -22,6 +22,7 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="/photo.jpg" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <title>{title}</title>
     <script is:inline>
@@ -37,6 +38,12 @@ const {
     </script>
   </head>
   <body>
+    <!-- Skip to content -->
+    <a href="#hero" class="skip-link">
+      <span class="lang-es">Saltar al contenido</span>
+      <span class="lang-en">Skip to content</span>
+    </a>
+
     <!-- Custom cursor -->
     <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
 
@@ -89,43 +96,47 @@ const {
       }
 
       // ── Scroll reveals ───────────────────────────────────────────────────
-      // Set initial state via JS (more reliable than CSS-only approach)
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const revealEls = gsap.utils.toArray<HTMLElement>(".reveal");
 
-      // Apply initial hidden state immediately
-      gsap.set(revealEls, { opacity: 0, y: 30, immediateRender: true });
+      if (reducedMotion) {
+        // Skip animations entirely — elements are already visible via CSS
+      } else {
+        // Apply initial hidden state immediately
+        gsap.set(revealEls, { opacity: 0, y: 30, immediateRender: true });
 
-      // Create a ScrollTrigger for each element
-      revealEls.forEach((el) => {
-        ScrollTrigger.create({
-          trigger: el,
-          start: "top 91%", // fire when element top reaches 91% of viewport height
-          once: true, // only trigger once (no reverse)
-          onEnter: () => {
-            gsap.to(el, {
+        // Create a ScrollTrigger for each element
+        revealEls.forEach((el) => {
+          ScrollTrigger.create({
+            trigger: el,
+            start: "top 91%",
+            once: true,
+            onEnter: () => {
+              gsap.to(el, {
+                opacity: 1,
+                y: 0,
+                duration: 0.85,
+                ease: "power3.out",
+                clearProps: "transform",
+              });
+            },
+          });
+        });
+
+        // Stagger siblings within same parent for a nicer cascade effect
+        ScrollTrigger.batch(".reveal-group > .reveal", {
+          onEnter: (batch) =>
+            gsap.to(batch, {
               opacity: 1,
               y: 0,
+              stagger: 0.12,
               duration: 0.85,
               ease: "power3.out",
-              clearProps: "transform", // clean up after animation
-            });
-          },
+            }),
+          start: "top 91%",
+          once: true,
         });
-      });
-
-      // Stagger siblings within same parent for a nicer cascade effect
-      ScrollTrigger.batch(".reveal-group > .reveal", {
-        onEnter: (batch) =>
-          gsap.to(batch, {
-            opacity: 1,
-            y: 0,
-            stagger: 0.12,
-            duration: 0.85,
-            ease: "power3.out",
-          }),
-        start: "top 91%",
-        once: true,
-      });
+      }
     </script>
   </body>
 </html>
@@ -137,6 +148,27 @@ const {
   }
   html.lang-en .lang-es {
     display: none;
+  }
+
+  /* Skip to content */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top 0.2s;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
   }
 
   /* Hide cursor dot by default — shown via JS on hover-capable devices */

@@ -20,15 +20,18 @@
   if (stored && stored !== "es") {
     html.classList.remove("lang-es");
     html.classList.add("lang-en");
+    html.lang = "en";
   }
 
   btn?.addEventListener("click", () => {
     const isEs = html.classList.contains("lang-es");
     if (isEs) {
       html.classList.replace("lang-es", "lang-en");
+      html.lang = "en";
       localStorage.setItem("lang", "en");
     } else {
       html.classList.replace("lang-en", "lang-es");
+      html.lang = "es";
       localStorage.setItem("lang", "es");
     }
   });
