@@ -1,5 +1,5 @@
 ---
-
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <section id="about" class="section-py">
@@ -14,7 +14,7 @@
       <div class="photo-block reveal">
         <div class="photo-frame">
           <img
-            src="/photo.jpg"
+            src={`${baseUrl}photo.jpg`}
             alt="Juan Sebastián Sandoval"
             class="photo-img"
             loading="lazy"
