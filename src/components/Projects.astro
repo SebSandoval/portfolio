@@ -25,7 +25,8 @@
               productos, carrito, pagos integrados y panel de administración.
             </p>
             <div class="project-stack">
-              <span>Next.js</span><span>NestJS</span><span>PostgreSQL</span><span>Docker</span>
+              <span>Next.js</span><span>NestJS</span><span>PostgreSQL</span
+              ><span>Docker</span>
             </div>
           </div>
         </article>
@@ -81,7 +82,9 @@
               de control para socios comerciales.
             </p>
             <div class="project-stack">
-              <span>Next.js</span><span>TypeScript</span><span>tRPC</span><span>Tailwind CSS</span>
+              <span>Next.js</span><span>TypeScript</span><span>tRPC</span><span
+                >Tailwind CSS</span
+              >
             </div>
           </div>
         </article>
@@ -284,7 +287,8 @@
               integrated payments, and admin dashboard.
             </p>
             <div class="project-stack">
-              <span>Next.js</span><span>NestJS</span><span>PostgreSQL</span><span>Docker</span>
+              <span>Next.js</span><span>NestJS</span><span>PostgreSQL</span
+              ><span>Docker</span>
             </div>
           </div>
         </article>
@@ -340,7 +344,9 @@
               control panel for business partners.
             </p>
             <div class="project-stack">
-              <span>Next.js</span><span>TypeScript</span><span>tRPC</span><span>Tailwind CSS</span>
+              <span>Next.js</span><span>TypeScript</span><span>tRPC</span><span
+                >Tailwind CSS</span
+              >
             </div>
           </div>
         </article>
@@ -509,8 +515,8 @@
             <div class="project-type">Personal</div>
             <h3 class="project-title">Projects on GitHub</h3>
             <p class="project-desc">
-              Explore my personal projects, experiments with new technologies, and
-              open source contributions.
+              Explore my personal projects, experiments with new technologies,
+              and open source contributions.
             </p>
             <div class="project-cta-arrow">
               See on GitHub
@@ -756,9 +762,14 @@
 
 <script>
   (function () {
-    const esExpander = document.querySelector<HTMLElement>('.projects-expander.lang-es');
-    const enExpander = document.querySelector<HTMLElement>('.projects-expander.lang-en');
-    const toggle = document.querySelector<HTMLButtonElement>('.projects-toggle');
+    const esExpander = document.querySelector<HTMLElement>(
+      ".projects-expander.lang-es",
+    );
+    const enExpander = document.querySelector<HTMLElement>(
+      ".projects-expander.lang-en",
+    );
+    const toggle =
+      document.querySelector<HTMLButtonElement>(".projects-toggle");
 
     if (!esExpander || !enExpander || !toggle) return;
 
@@ -770,21 +781,23 @@
     let clampHeight = 0;
 
     function getVisibleExpander(): HTMLElement {
-      return document.documentElement.classList.contains('lang-en') ? en : es;
+      return document.documentElement.classList.contains("lang-en") ? en : es;
     }
 
     function measure() {
       const expander = getVisibleExpander();
-      const grid = expander.querySelector<HTMLElement>('.projects-grid');
+      const grid = expander.querySelector<HTMLElement>(".projects-grid");
       if (!grid) return;
 
       // Temporarily unlatch to measure real layout
-      expander.style.transition = 'none';
-      expander.style.maxHeight = 'none';
+      expander.style.transition = "none";
+      expander.style.maxHeight = "none";
       // Force reflow
       expander.offsetHeight;
 
-      const cards = Array.from(grid.querySelectorAll<HTMLElement>('.project-card'));
+      const cards = Array.from(
+        grid.querySelectorAll<HTMLElement>(".project-card"),
+      );
       const gridRect = grid.getBoundingClientRect();
 
       // Group cards by their top offset (= row grouping)
@@ -799,75 +812,79 @@
 
       if (rows.length <= 2) {
         // Fits in 2 rows — hide toggle
-        btn.style.display = 'none';
-        expander.style.transition = '';
-        expander.style.maxHeight = '';
-        es.style.maxHeight = '';
-        en.style.maxHeight = '';
+        btn.style.display = "none";
+        expander.style.transition = "";
+        expander.style.maxHeight = "";
+        es.style.maxHeight = "";
+        en.style.maxHeight = "";
         return;
       }
 
-      btn.style.display = '';
+      btn.style.display = "";
 
       // Clamp = bottom edge of the last card in row 2
       const row2Cards = rows[1][1];
       const row2Bottom = Math.max(
-        ...row2Cards.map((c) => Math.round(c.getBoundingClientRect().bottom - gridRect.top))
+        ...row2Cards.map((c) =>
+          Math.round(c.getBoundingClientRect().bottom - gridRect.top),
+        ),
       );
-      clampHeight = row2Bottom;
+      clampHeight = row2Bottom - 5;
 
       // Re-enable transition
-      expander.style.transition = '';
+      expander.style.transition = "";
 
       if (!expanded) {
         // Apply instantly (no animation on initial set)
-        es.style.transition = 'none';
-        en.style.transition = 'none';
-        es.style.maxHeight = clampHeight + 'px';
-        en.style.maxHeight = clampHeight + 'px';
+        es.style.transition = "none";
+        en.style.transition = "none";
+        es.style.maxHeight = clampHeight + "px";
+        en.style.maxHeight = clampHeight + "px";
         // Force reflow then restore transitions
         es.offsetHeight;
         en.offsetHeight;
-        es.style.transition = '';
-        en.style.transition = '';
+        es.style.transition = "";
+        en.style.transition = "";
       } else {
         // Already expanded — keep expanded
-        es.style.maxHeight = '9999px';
-        en.style.maxHeight = '9999px';
+        es.style.maxHeight = "9999px";
+        en.style.maxHeight = "9999px";
       }
     }
 
-    btn.addEventListener('click', () => {
+    btn.addEventListener("click", () => {
       expanded = !expanded;
-      btn.setAttribute('aria-expanded', String(expanded));
+      btn.setAttribute("aria-expanded", String(expanded));
 
       if (expanded) {
-        es.style.maxHeight = es.scrollHeight + 'px';
-        en.style.maxHeight = en.scrollHeight + 'px';
+        es.style.maxHeight = es.scrollHeight + "px";
+        en.style.maxHeight = en.scrollHeight + "px";
         // After transition, unlock height so content can reflow freely
         es.addEventListener(
-          'transitionend',
-          () => { if (expanded) es.style.maxHeight = '9999px'; },
-          { once: true }
+          "transitionend",
+          () => {
+            if (expanded) es.style.maxHeight = "9999px";
+          },
+          { once: true },
         );
       } else {
         // Snap from 9999px to exact scrollHeight first (no animation), then animate to clamp
-        es.style.transition = 'none';
-        en.style.transition = 'none';
-        es.style.maxHeight = es.scrollHeight + 'px';
-        en.style.maxHeight = en.scrollHeight + 'px';
+        es.style.transition = "none";
+        en.style.transition = "none";
+        es.style.maxHeight = es.scrollHeight + "px";
+        en.style.maxHeight = en.scrollHeight + "px";
         es.offsetHeight;
         en.offsetHeight;
-        es.style.transition = '';
-        en.style.transition = '';
-        es.style.maxHeight = clampHeight + 'px';
-        en.style.maxHeight = clampHeight + 'px';
+        es.style.transition = "";
+        en.style.transition = "";
+        es.style.maxHeight = clampHeight + "px";
+        en.style.maxHeight = clampHeight + "px";
       }
     });
 
     // Debounced resize handler
     let resizeTimer: ReturnType<typeof setTimeout>;
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(measure, 120);
     });
@@ -875,7 +892,10 @@
     // Re-measure when language switches (class on <html> changes)
     new MutationObserver(() => {
       if (!expanded) measure();
-    }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    }).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
     // Initial measure after first paint
     requestAnimationFrame(() => requestAnimationFrame(measure));
