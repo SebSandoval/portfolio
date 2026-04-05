@@ -24,6 +24,17 @@ const {
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <title>{title}</title>
+    <script is:inline>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (saved === "dark" || (!saved && prefersDark)) {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <!-- Custom cursor -->

@@ -1,5 +1,6 @@
 ---
 import LanguageToggle from "./LanguageToggle.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -44,6 +45,7 @@ import LanguageToggle from "./LanguageToggle.astro";
         class="cv-btn lang-en hidden md:inline-flex"
       >Download CV</a>
 
+      <ThemeToggle />
       <LanguageToggle />
 
       <!-- Mobile menu button -->
@@ -141,7 +143,7 @@ import LanguageToggle from "./LanguageToggle.astro";
   }
 
   .mobile-menu {
-    background-color: rgba(245, 240, 232, 0.97);
+    background-color: var(--color-surface-alpha);
     backdrop-filter: blur(12px);
     border-top: 1px solid rgba(107, 100, 96, 0.12);
   }

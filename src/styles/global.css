@@ -15,11 +15,26 @@
   --font-mono: "JetBrains Mono", monospace;
 }
 
+:root {
+  --color-bg-alpha: rgba(245, 240, 232, 0.9);
+  --color-surface-alpha: rgba(237, 232, 223, 0.97);
+}
+
+html.dark {
+  --color-bg: #131110;
+  --color-surface: #1C1917;
+  --color-fg: #EDE8DF;
+  --color-muted: #9B9390;
+  --color-bg-alpha: rgba(19, 17, 16, 0.9);
+  --color-surface-alpha: rgba(28, 25, 23, 0.97);
+}
+
 html {
   background-color: var(--color-bg);
   color: var(--color-fg);
   font-family: var(--font-body);
   scroll-behavior: smooth;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 *,
@@ -92,8 +107,13 @@ html {
 
 /* Nav scrolled state */
 nav.scrolled {
-  background-color: rgba(245, 240, 232, 0.9);
+  background-color: var(--color-bg-alpha);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(194, 85, 58, 0.12);
+}
+
+/* Cursor blend mode fix for dark backgrounds */
+html.dark .cursor-dot {
+  mix-blend-mode: screen;
 }
